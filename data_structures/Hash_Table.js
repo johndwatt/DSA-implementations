@@ -37,15 +37,47 @@ class HashTable {
      * @returns Hash table data with added key value pair.
      */
     set(key, value) {
+        // hash the key to find an address
         let address = this._hash(key);
+        // if the address doesn't exist, add the address
         if (!this.data[address]) {
             this.data[address] = [];
         }
+        // set the address to the key value pair
         this.data[address].push([key, value]);
+        // return updated data
         return this.data;
+    }
+
+    /**
+     * Returns value stored at address with matching key.
+     * @param {*} key Table key.
+     * @returns Value stored at table key. 
+     */
+    get(key) {
+        // find key's hashed address location
+        const address = this._hash(key);
+        // store that data location in variable
+        const currentBucket = this.data[address];
+        // if that location has data...
+        if (currentBucket){
+            // loop through the data...
+            for (let i = 0; i < currentBucket.length; i++) {
+                // if location data has matching key, return the paired value
+                if (currentBucket[i][0] === key) {
+                    return currentBucket[i][1];
+                }
+            }
+        }
+        // otherwise, return undefined
+        return undefined;
     }
 }
 
+
+// TESTING:
 let map = new HashTable(10);
 console.log(map);
-map.set("bird", 1);
+console.log(map.set("bird", 1));
+console.log(map.set("potter", "harry"));
+console.log(map.get("bird"));
