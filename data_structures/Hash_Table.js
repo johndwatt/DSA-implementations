@@ -72,12 +72,30 @@ class HashTable {
         // otherwise, return undefined
         return undefined;
     }
+
+    /**
+     * Looks up and retrieves all keys in the hash table.
+     * @returns {Array} Array containing all keys in hash table.
+     */
+    keys() {
+        // instantiate keys array
+        const keysArray = [];
+        // loop through data and push all keys to array
+        for (let i = 0; i < this.data.length; i++){
+            if (this.data[i]) {
+                keysArray.push(this.data[i][0][0]);
+            }
+        }
+        // return array
+        return keysArray;
+    }
 }
 
 
 // TESTING:
 let map = new HashTable(10);
 console.log(map);
-console.log(map.set("bird", 1));
-console.log(map.set("potter", "harry"));
-console.log(map.get("bird"));
+console.log("map.set('bird', 1)):", map.set("bird", 1));
+console.log("map.set('potter', 'harry')):", map.set("potter", "harry"));
+console.log("map.get('bird'):", map.get("bird"));
+console.log("map.keys():", map.keys())
