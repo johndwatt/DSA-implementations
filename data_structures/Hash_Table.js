@@ -78,12 +78,23 @@ class HashTable {
      * @returns {Array} Array containing all keys in hash table.
      */
     keys() {
+        // if there is no data, return undefined
+        if (!this.data.length) return undefined;
         // instantiate keys array
         const keysArray = [];
         // loop through data and push all keys to array
         for (let i = 0; i < this.data.length; i++){
+            // check if data exists
             if (this.data[i]) {
-                keysArray.push(this.data[i][0][0]);
+                // if there is more than one item, loop through and push all keys to array
+                if (this.data[i].length > 1) {
+                    for (let j = 0; j < this.data[i].length; j++){
+                        keysArray.push(this.data[i][j][0]);
+                    }
+                // if only one item, push key to array
+                } else {
+                    keysArray.push(this.data[i][0][0]);
+                }
             }
         }
         // return array
@@ -93,9 +104,11 @@ class HashTable {
 
 
 // TESTING:
-let map = new HashTable(10);
+let map = new HashTable(5);
 console.log(map);
 console.log("map.set('bird', 1)):", map.set("bird", 1));
 console.log("map.set('potter', 'harry')):", map.set("potter", "harry"));
+console.log("map.set('man', 'jim')):", map.set("man", "jim"));
+console.log("map.set('mano', 'jims')):", map.set("mano", "jims"));
 console.log("map.get('bird'):", map.get("bird"));
 console.log("map.keys():", map.keys())
