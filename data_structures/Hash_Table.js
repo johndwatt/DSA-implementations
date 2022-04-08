@@ -100,6 +100,25 @@ class HashTable {
         // return array
         return keysArray;
     }
+
+    /**
+     * Deletes data stored at address with matching key.
+     * @param {*} key Table key.
+     * @returns Boolean value: true on success, false on failure/could not find.
+     */
+    remove(key) {
+        const address = this._hash(key);
+        const currentBucket = this.data[address];
+        if (currentBucket){
+            for (let i = 0; i < currentBucket.length; i++) {
+                if (currentBucket[i][0] === key) {
+                    currentBucket.splice(i, 1);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
 
 
@@ -111,4 +130,8 @@ console.log("map.set('potter', 'harry')):", map.set("potter", "harry"));
 console.log("map.set('man', 'jim')):", map.set("man", "jim"));
 console.log("map.set('mano', 'jims')):", map.set("mano", "jims"));
 console.log("map.get('bird'):", map.get("bird"));
-console.log("map.keys():", map.keys())
+console.log("map.keys():", map.keys());
+console.log("map.remove(bird):", map.remove("bird"));
+console.log("map.remove(mano):", map.remove("mano"));
+console.log("map.data:", map.data);
+console.log("map.remove(hedge):", map.remove("hedge"));
