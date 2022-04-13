@@ -38,8 +38,23 @@ class ArrayImp {
         this.length++;
         return this.data;
     }
+
+    /**
+     * Deletes the last item in the array.
+     * @returns The deleted item.
+     */
+    pop() {
+        const lastItem = this.data[this.length - 1];
+        delete this.data[this.length - 1]
+        this.length--;
+        return lastItem;
+    }
 }
 
 const myArray = new ArrayImp();
 console.log(myArray.push("bird"));
 console.log(myArray.get(0));
+console.log(myArray.push("plane"));
+console.log(myArray.push("delete me?"));
+console.log(myArray.pop());
+console.log(myArray.data);
