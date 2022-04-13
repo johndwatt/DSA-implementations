@@ -27,6 +27,19 @@ class ArrayImp {
     get(idx) {
         return this.data[idx];
     }
+
+    /**
+     * Store a value in array at next available index (end of the array).
+     * @param {*} item Value to be stored in array.
+     * @returns Array data in object. 
+     */
+    push(item) {
+        this.data[this.length] = item;
+        this.length++;
+        return this.data;
+    }
 }
 
 const myArray = new ArrayImp();
+console.log(myArray.push("bird"));
+console.log(myArray.get(0));
