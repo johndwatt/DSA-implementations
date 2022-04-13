@@ -45,9 +45,24 @@ class ArrayImp {
      */
     pop() {
         const lastItem = this.data[this.length - 1];
-        delete this.data[this.length - 1]
+        delete this.data[this.length - 1];
         this.length--;
         return lastItem;
+    }
+
+    /**
+     * Delete item at index and shift items in array to new indicies.
+     * @param {Number} index Index of value to be deleted. 
+     * @returns The deleted item.
+     */
+    deleteAtIndex(idx) {
+        const item = this.data[idx];
+        for (let i = idx; i < this.length - 1; i++){
+            this.data[i] = this.data[i + 1];
+        }
+        delete this.data[this.length - 1];
+        this.length--;
+        return item;
     }
 }
 
@@ -57,4 +72,9 @@ console.log(myArray.get(0));
 console.log(myArray.push("plane"));
 console.log(myArray.push("delete me?"));
 console.log(myArray.pop());
+console.log(myArray.data);
+console.log(myArray.push("delete me2"));
+console.log(myArray.push("superman"));
+console.log(myArray.push("clark kent"));
+console.log(myArray.deleteAtIndex(2));
 console.log(myArray.data);
