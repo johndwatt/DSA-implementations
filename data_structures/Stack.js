@@ -67,6 +67,14 @@ class MyStackTwo {
         this.bottom = null;
         this.length = 0;
     }
+
+    /**
+     * Retrieves value of item at the top of the stack.
+     * @returns Value at the top of the stack.
+     */
+    peek() {
+        return this.top;
+    }
 }
 
 const stackTestTwo = new MyStackTwo();
