@@ -50,9 +50,30 @@ class Queue {
         this.length++;
         return this;
     }
+
+    /**
+     * Removes an item from the start of the queue. 
+     * @returns Updated queue. 
+     */
+    dequeue() {
+        if (!this.first) {
+            return null;
+        }
+        if (this.last === this.first) {
+            this.last = null;
+        }
+        this.first = this.first.next;
+        this.length--;
+        return this;
+    }
 }
 
 const myQueue = new Queue();
 console.log(myQueue.enqueue("bird"));
 console.log(myQueue.enqueue("plane"));
 console.log(myQueue.enqueue("superman"));
+console.log(myQueue.peek());
+console.log(myQueue.enqueue("delete me"));
+console.log(myQueue.dequeue());
+console.log(myQueue);
+
