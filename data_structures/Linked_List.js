@@ -25,4 +25,21 @@ class LinkedList {
         this.tail = this.head;
         this.length = 1;
     }
+
+    /**
+     * Adds node with given value to the end of the linked list.
+     * @param {*} value Value to be appended to linked list.
+     * @returns Updated linked list. 
+     */
+    append(value) {
+        const newNode = new Node(value);
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+        return this;
+    }
 }
+
+const myLinkedList = new LinkedList("bird");
+console.log(myLinkedList);
+console.log(myLinkedList.append("plane"));
