@@ -31,11 +31,24 @@ class MyStack {
         this.array.push(item);
         return this;
     }
+
+    /**
+     * Removes an item from the top of the stack. 
+     * @returns Updated stack. 
+     */
+    pop() {
+        this.array.pop();
+        return this;
+    }
 }
 
 const stackTest = new MyStack();
 console.log(stackTest.push("Bird"));
 console.log(stackTest.push("Plane"));
 console.log(stackTest.peek());
+console.log(stackTest.push("delete me"));
+console.log(stackTest.peek());
+console.log(stackTest.pop());
+console.log(stackTest);
 
 
