@@ -38,8 +38,22 @@ class LinkedList {
         this.length++;
         return this;
     }
+
+    /**
+     * Adds node with given value to the start of the linked list.
+     * @param {*} value Value to be prepended to linked list.
+     * @returns Updated linked list. 
+     */
+    prepend(value) {
+        const newNode = new Node(value);
+        newNode.next = this.head;
+        this.head = newNode;
+        this.length++;
+        return this;
+    }
 }
 
 const myLinkedList = new LinkedList("bird");
 console.log(myLinkedList);
 console.log(myLinkedList.append("plane"));
+console.log(myLinkedList.prepend("superman"));
