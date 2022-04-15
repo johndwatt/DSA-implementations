@@ -22,4 +22,14 @@ class Queue {
         this.last = null;
         this.length = 0;
     }
+
+    /**
+     * Retrieves value of the earliest added item.
+     * @returns Value at the start of the queue.
+     */
+    peek(){
+        return this.first;
+    }
 }
+
+const myQueue = new Queue();
