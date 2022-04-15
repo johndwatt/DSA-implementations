@@ -9,3 +9,17 @@
     // Peek: O(1)
 
 // IMPLEMENTATION:
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class Queue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.length = 0;
+    }
+}
