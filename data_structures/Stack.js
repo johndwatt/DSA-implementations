@@ -75,7 +75,29 @@ class MyStackTwo {
     peek() {
         return this.top;
     }
+
+    /**
+     * Adds an item to the top of the stack. 
+     * @param {*} item Value to be added to the top of the stack.
+     * @returns Updated stack. 
+     */
+    push(item) {
+        const newNode = new Node(item);
+        if (this.length === 0) {
+            this.top = newNode;
+            this.bottom = newNode;
+        } else {
+            const pointer = this.top;
+            this.top = newNode;
+            this.top.next = pointer;
+        }
+        this.length++;
+        return this;
+    }
 }
 
 const stackTestTwo = new MyStackTwo();
 console.log(stackTestTwo)
+console.log(stackTestTwo.push("bird"))
+console.log(stackTestTwo.push("plane"))
+console.log(stackTestTwo.peek())
