@@ -24,12 +24,35 @@ class Queue {
     }
 
     /**
-     * Retrieves value of the earliest added item.
+     * Retrieves value of the earliest added item at the start of the queue.
      * @returns Value at the start of the queue.
      */
-    peek(){
+    peek() {
         return this.first;
+    }
+
+    /**
+     * Adds an item to the end of the queue. 
+     * @param {*} item Value to be added to the end of the queue.
+     * @returns Updated queue. 
+     */
+    enqueue(item) {
+        const newNode = new Node(item);
+        if (this.length === 0) {
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            // add newNode to current last node's "next" value
+            this.last.next = newNode;
+            // update last to have the new node
+            this.last = newNode;
+        }
+        this.length++;
+        return this;
     }
 }
 
 const myQueue = new Queue();
+console.log(myQueue.enqueue("bird"));
+console.log(myQueue.enqueue("plane"));
+console.log(myQueue.enqueue("superman"));
