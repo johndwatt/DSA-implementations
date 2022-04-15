@@ -51,6 +51,24 @@ class LinkedList {
         this.length++;
         return this;
     }
+
+    /**
+     * Traverses to node at given index and returns the node found.
+     * @param {Number} index Index of node to traverse to. 
+     * @returns Found node. 
+     */
+    traverseToIndex(index) {
+        if (index >= this.length) {
+            return null;
+        }
+        let counter = 0;
+        let currentNode = this.headl
+        while (counter !== index) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+        return currentNode;
+    }
 }
 
 const myLinkedList = new LinkedList("bird");
