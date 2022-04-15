@@ -94,6 +94,22 @@ class MyStackTwo {
         this.length++;
         return this;
     }
+
+    /**
+     * Removes an item from the top of the stack. 
+     * @returns Updated stack. 
+     */
+    pop() {
+        if (!this.top) {
+            return null;
+        }
+        if (this.top === this.bottom) {
+            this.bottom = null;
+        }
+        this.top = this.top.next;
+        this.length--;
+        return this;
+    }
 }
 
 const stackTestTwo = new MyStackTwo();
@@ -101,3 +117,5 @@ console.log(stackTestTwo)
 console.log(stackTestTwo.push("bird"))
 console.log(stackTestTwo.push("plane"))
 console.log(stackTestTwo.peek())
+console.log(stackTestTwo.push("delete me"))
+console.log(stackTestTwo.pop())
