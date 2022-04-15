@@ -29,7 +29,7 @@ class MyStack {
      */
     push(item) {
         this.array.push(item);
-        return this;
+        return this.array;
     }
 
     /**
@@ -38,17 +38,36 @@ class MyStack {
      */
     pop() {
         this.array.pop();
-        return this;
+        return this.array;
     }
 }
 
-const stackTest = new MyStack();
-console.log(stackTest.push("Bird"));
-console.log(stackTest.push("Plane"));
-console.log(stackTest.peek());
-console.log(stackTest.push("delete me"));
-console.log(stackTest.peek());
-console.log(stackTest.pop());
-console.log(stackTest);
+// const stackTest = new MyStack();
+// console.log(stackTest.push("Bird"));
+// console.log(stackTest.push("Plane"));
+// console.log(stackTest.peek());
+// console.log(stackTest.push("delete me"));
+// console.log(stackTest.peek());
+// console.log(stackTest.pop());
+// console.log(stackTest);
 
 
+// IMPLEMENTATION - Linked List:
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+class MyStackTwo {
+    constructor() {
+        this.top = null;
+        this.bottom = null;
+        this.length = 0;
+    }
+}
+
+const stackTestTwo = new MyStackTwo();
+console.log(stackTestTwo)
