@@ -88,6 +88,20 @@ class LinkedList {
         this.length++;
         return this;
     }
+
+    /**
+     * Print the list of values stored in linked list.
+     * @returns Array of values in linked list. 
+     */
+    printList() {
+        const arr = [];
+        let currentNode = this.head;
+        while (currentNode !== null) {
+            arr.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        return arr;
+    }
 }
 
 const myLinkedList = new LinkedList("bird");
@@ -95,3 +109,6 @@ console.log(myLinkedList);
 console.log(myLinkedList.append("plane"));
 console.log(myLinkedList.prepend("superman"));
 console.log(myLinkedList.insert(1, "check insert"));
+console.log(myLinkedList.printList());
+console.log(myLinkedList.insert(2, "check insert"));
+console.log(myLinkedList.printList());
