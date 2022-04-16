@@ -62,7 +62,7 @@ class LinkedList {
             return null;
         }
         let counter = 0;
-        let currentNode = this.headl
+        let currentNode = this.head;
         while (counter !== index) {
             currentNode = currentNode.next;
             counter++;
