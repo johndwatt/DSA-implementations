@@ -69,9 +69,29 @@ class LinkedList {
         }
         return currentNode;
     }
+
+    /**
+     * Traverses to node at given index and inserts new node with value into list.
+     * @param {Number} index Index of node to traverse to. 
+     * @param {*} value Value to be inserted into linked list.
+     * @returns Updated linked list. 
+     */
+    insert(index, value) {
+        if (index >= this.length) {
+            return this.append(value);
+        }
+        const newNode = new Node(value);
+        const leader = this.traverseToIndex(index-1);
+        const pointer = leader.next;
+        leader.next = newNode;
+        newNode.next = pointer;
+        this.length++;
+        return this;
+    }
 }
 
 const myLinkedList = new LinkedList("bird");
 console.log(myLinkedList);
 console.log(myLinkedList.append("plane"));
 console.log(myLinkedList.prepend("superman"));
+console.log(myLinkedList.insert(1, "check insert"));
