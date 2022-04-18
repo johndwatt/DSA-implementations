@@ -102,6 +102,22 @@ class LinkedList {
         }
         return arr;
     }
+
+    /**
+     * Removes a node at given index from the linked list.
+     * @param {Number} index Index of node to traverse to. 
+     * @returns List of values. 
+     */
+    remove(index) {
+        if (index >= this.length) {
+            return null;
+        }
+        const leader = this.traverseToIndex(index - 1);
+        const toDelete = leader.next;
+        leader.next = toDelete.next;
+        this.length--;
+        return this.printList();
+    }
 }
 
 const myLinkedList = new LinkedList("bird");
@@ -112,3 +128,4 @@ console.log(myLinkedList.insert(1, "check insert"));
 console.log(myLinkedList.printList());
 console.log(myLinkedList.insert(2, "check insert"));
 console.log(myLinkedList.printList());
+console.log(myLinkedList.remove(1));
