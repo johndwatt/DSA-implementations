@@ -74,6 +74,28 @@ class BinarySearchTree {
         }
     }
 
+    /**
+     * Locate and retrieve node where given value is stored.
+     * @param {*} value Value to be searched for.
+     * @returns Node with matching value, or null if no nodes match.
+     */
+    lookup(value) {
+        if (!this.root) {
+            return null;
+        }
+        let currentNode = this.root;
+        while (currentNode) {
+            if (value < currentNode.value) {
+                currentNode = currentNode.left;
+            } else if (value > currentNode.value) {
+                currentNode = currentNode.right;
+            } else if (value === currentNode.value) {
+                return currentNode;
+            }
+        }
+        return null;
+    }
+
 }
 
 const tree = new BinarySearchTree();
@@ -82,4 +104,9 @@ console.log(tree.insert(10))
 console.log(tree.insert(5))
 console.log(tree.insert(50))
 console.log(traverse(tree.root))
+console.log(tree.insert(1))
+console.log(tree.insert(55))
+console.log(tree.insert(5000))
+console.log(traverse(tree.root))
+console.log(tree.lookup(55))
 
