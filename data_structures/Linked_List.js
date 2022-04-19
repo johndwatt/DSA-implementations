@@ -170,5 +170,23 @@ class DoublyLinkedList {
         this.length = 1;
     }
 
+    /**
+     * Adds node with given value to the end of the linked list.
+     * @param {*} value Value to be appended to linked list.
+     * @returns Updated linked list. 
+     */
+    append(value) {
+        const newNode = new NodeTwo(value);
+        newNode.prev = this.tail;
+        this.tail.next = newNode;
+        this.tail = newNode;
+        this.length++;
+        return this;
+    }
+
     
 }
+
+const myDoublyLinkedList = new DoublyLinkedList("bird");
+console.log(myDoublyLinkedList.append("plane"));
+console.log(myDoublyLinkedList.append("superman"));
