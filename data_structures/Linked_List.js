@@ -154,7 +154,6 @@ class LinkedList {
 
 
 // IMPLEMENTATION - Doubly Linked List:
-
 class NodeTwo {
     constructor(value) {
         this.value = value;
@@ -197,9 +196,52 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+
+    /**
+     * Traverses to node at given index and returns the node found.
+     * @param {Number} index Index of node to traverse to. 
+     * @returns Found node. 
+     */
+     traverseToIndex(index) {
+        if (index >= this.length) {
+            return null;
+        }
+        let counter = 0;
+        let currentNode = this.head;
+        while (counter !== index) {
+            currentNode = currentNode.next;
+            counter++;
+        }
+        return currentNode;
+    }
+
+    /**
+     * Traverses to node at given index and inserts new node with value into linked list.
+     * @param {Number} index Index of node to traverse to. 
+     * @param {*} value Value to be inserted into linked list.
+     * @returns Updated linked list. 
+     */
+     insert(index, value) {
+        if (index >= this.length) {
+            return this.append(value);
+        }
+        if (index === 0) {
+            return this.prepend(value);
+        }
+        const newNode = new NodeTwo(value);
+        const leader = this.traverseToIndex(index-1);
+        const pointer = leader.next;
+        leader.next = newNode;
+        newNode.prev = leader;
+        newNode.next = pointer;
+        pointer.prev = newNode;
+        this.length++;
+        return this;
+    }
 }
 
 const myDoublyLinkedList = new DoublyLinkedList("bird");
 console.log(myDoublyLinkedList.append("plane"));
 console.log(myDoublyLinkedList.append("superman"));
 console.log(myDoublyLinkedList.prepend("what is that?"));
+console.log(myDoublyLinkedList.insert(1, "it's a..."));
