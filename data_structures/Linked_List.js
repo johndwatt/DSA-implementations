@@ -118,6 +118,30 @@ class LinkedList {
         this.length--;
         return this.printList();
     }
+
+    /**
+     * Reverses the order of values in the linked list. 
+     * @returns List of values. 
+     */
+    reverse() {
+        if (!this.head.next) {
+            return this.head;
+        }
+        let first = this.head;
+        let second = first.next;
+        this.tail = this.head;
+        
+        while(second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+
+        this.head.next = null;
+        this.head = first;
+        return this.printList();
+    }
 }
 
 const myLinkedList = new LinkedList("bird");
@@ -125,7 +149,5 @@ console.log(myLinkedList);
 console.log(myLinkedList.append("plane"));
 console.log(myLinkedList.prepend("superman"));
 console.log(myLinkedList.insert(1, "check insert"));
-console.log(myLinkedList.printList());
-console.log(myLinkedList.insert(2, "check insert"));
-console.log(myLinkedList.printList());
 console.log(myLinkedList.remove(1));
+console.log(myLinkedList.reverse());
