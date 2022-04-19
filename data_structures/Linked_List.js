@@ -144,10 +144,31 @@ class LinkedList {
     }
 }
 
-const myLinkedList = new LinkedList("bird");
-console.log(myLinkedList);
-console.log(myLinkedList.append("plane"));
-console.log(myLinkedList.prepend("superman"));
-console.log(myLinkedList.insert(1, "check insert"));
-console.log(myLinkedList.remove(1));
-console.log(myLinkedList.reverse());
+// const myLinkedList = new LinkedList("bird");
+// console.log(myLinkedList);
+// console.log(myLinkedList.append("plane"));
+// console.log(myLinkedList.prepend("superman"));
+// console.log(myLinkedList.insert(1, "check insert"));
+// console.log(myLinkedList.remove(1));
+// console.log(myLinkedList.reverse());
+
+
+// IMPLEMENTATION - Doubly Linked List:
+
+class NodeTwo {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+class DoublyLinkedList {
+    constructor(value) {
+        this.head = new NodeTwo(value);
+        this.tail = this.head;
+        this.length = 1;
+    }
+
+    
+}
