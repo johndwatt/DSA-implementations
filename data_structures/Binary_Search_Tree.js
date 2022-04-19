@@ -26,6 +26,18 @@ class Node {
     }
 }
 
+/**
+ * Traverses binary search tree and returns an object with all values in the tree.
+ * @param {*} node Node to begin traversing from.
+ * @returns Tree object with node values.
+ */
+const traverse = function(node) {
+    const tree = { value: node.value };
+    tree.left = node.left === null ? null : traverse(node.left);
+    tree.right = node.right === null ? null : traverse(node.right);
+    return tree;
+}
+
 class BinarySearchTree {
     constructor() {
         this.root = null;
