@@ -238,6 +238,20 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+
+    /**
+     * Print the list of values stored in linked list.
+     * @returns Array of values in linked list. 
+     */
+     printList() {
+        const arr = [];
+        let currentNode = this.head;
+        while (currentNode !== null) {
+            arr.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+        return arr;
+    }
 }
 
 const myDoublyLinkedList = new DoublyLinkedList("bird");
@@ -245,3 +259,4 @@ console.log(myDoublyLinkedList.append("plane"));
 console.log(myDoublyLinkedList.append("superman"));
 console.log(myDoublyLinkedList.prepend("what is that?"));
 console.log(myDoublyLinkedList.insert(1, "it's a..."));
+console.log(myDoublyLinkedList.printList());
