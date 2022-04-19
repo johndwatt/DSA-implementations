@@ -252,6 +252,24 @@ class DoublyLinkedList {
         }
         return arr;
     }
+
+    /**
+     * Removes a node at given index from the linked list.
+     * @param {Number} index Index of node to traverse to. 
+     * @returns List of values. 
+     */
+     remove(index) {
+        if (index >= this.length) {
+            return null;
+        }
+        const leader = this.traverseToIndex(index - 1);
+        const toDelete = leader.next;
+        const follower = toDelete.next;
+        leader.next = follower;
+        follower.prev = leader;
+        this.length--;
+        return this.printList();
+    }
 }
 
 const myDoublyLinkedList = new DoublyLinkedList("bird");
@@ -260,3 +278,5 @@ console.log(myDoublyLinkedList.append("superman"));
 console.log(myDoublyLinkedList.prepend("what is that?"));
 console.log(myDoublyLinkedList.insert(1, "it's a..."));
 console.log(myDoublyLinkedList.printList());
+console.log(myDoublyLinkedList.remove(1));
+console.log(myDoublyLinkedList)
