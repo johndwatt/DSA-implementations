@@ -279,4 +279,4 @@ console.log(myDoublyLinkedList.prepend("what is that?"));
 console.log(myDoublyLinkedList.insert(1, "it's a..."));
 console.log(myDoublyLinkedList.printList());
 console.log(myDoublyLinkedList.remove(1));
-console.log(myDoublyLinkedList)
+console.log(myDoublyLinkedList);
