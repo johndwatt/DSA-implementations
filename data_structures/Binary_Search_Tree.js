@@ -42,5 +42,44 @@ class BinarySearchTree {
     constructor() {
         this.root = null;
     }
+
+    /**
+     * Adds a new node with the given value to the binary search tree.
+     * @param {*} value Value to be added to the tree.
+     * @returns Updated tree.
+     */
+    insert(value) {
+        const newNode = new Node(value);
+        if (this.root === null) {
+            this.root = newNode;
+        } else {
+            let currentNode = this.root;
+            while(true) {
+                if (value < currentNode.value) {
+                    // GO LEFT
+                    if(!currentNode.left) {
+                        currentNode.left = newNode;
+                        return this;
+                    }
+                    currentNode = currentNode.left;
+                } else {
+                    // GO RIGHT
+                    if(!currentNode.right) {
+                        currentNode.right = newNode;
+                        return this;
+                    }
+                    currentNode = currentNode.right;
+                }
+            }
+        }
+    }
+
 }
+
+const tree = new BinarySearchTree();
+console.log(tree);
+console.log(tree.insert(10))
+console.log(tree.insert(5))
+console.log(tree.insert(50))
+console.log(traverse(tree.root))
 
