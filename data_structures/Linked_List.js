@@ -184,9 +184,22 @@ class DoublyLinkedList {
         return this;
     }
 
-    
+    /**
+     * Adds node with given value to the start of the linked list.
+     * @param {*} value Value to be prepended to linked list.
+     * @returns Updated linked list. 
+     */
+    prepend(value) {
+        const newNode = new NodeTwo(value);
+        newNode.next = this.head;
+        this.head.prev = newNode;
+        this.head = newNode;
+        this.length++;
+        return this;
+    }
 }
 
 const myDoublyLinkedList = new DoublyLinkedList("bird");
 console.log(myDoublyLinkedList.append("plane"));
 console.log(myDoublyLinkedList.append("superman"));
+console.log(myDoublyLinkedList.prepend("what is that?"));
