@@ -35,9 +35,30 @@ class Graph {
         this.adjacentList[node2].push(node1);
         return this;
     }
+
+    /**
+     * Prints all connections for each node to the console.
+     */
+    showConnections() {
+        const allNodes = Object.keys(this.adjacentList);
+        console.log("ALL CONNECTIONS:")
+        for (let node of allNodes) {
+            let nodeConnections = this.adjacentList[node];
+            let connections = "";
+            let vertex;
+            for (vertex of nodeConnections) {
+                connections += vertex + " ";
+            }
+            console.log(node + "-->" + connections);
+        }
+        return "Done";
+    }
 }
 
 const myGraph = new Graph();
 console.log(myGraph.addVertex(5));
 console.log(myGraph.addVertex(10));
+console.log(myGraph.addVertex(13));
 console.log(myGraph.addEdge(5, 10));
+console.log(myGraph.addEdge(5, 13));
+console.log(myGraph.showConnections());
