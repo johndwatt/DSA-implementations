@@ -11,4 +11,32 @@ class Graph {
         this.numberOfNodes = 0;
         this.adjacentList = {};
     }
+
+    /**
+     * Adds a node to the graph.
+     * @param {*} node Value to be added as a node.
+     * @returns Updated Graph.
+     */
+    addVertex(node) {
+        this.adjacentList[node] = [];
+        this.numberOfNodes++;
+        return this;
+    }
+
+    /**
+     * Adds an edge to the graph, connecting two nodes.
+     * @param {*} node Value to be added as a node.
+     * @returns Updated Graph.
+     */
+    addEdge(node1, node2) {
+        // A directed graph only needs the top line of code
+        this.adjacentList[node1].push(node2);
+        this.adjacentList[node2].push(node1);
+        return this;
+    }
 }
+
+const myGraph = new Graph();
+console.log(myGraph.addVertex(5));
+console.log(myGraph.addVertex(10));
+console.log(myGraph.addEdge(5, 10));
