@@ -1,4 +1,4 @@
-// === BUBBLE SORT ===
+// === SELECTION SORT ===
 
 // Strategy: Scans list of items for the smallest element and swaps that element for the one in the first position. Loops repeatedly until all elements are sorted. 
 
