@@ -25,7 +25,8 @@ class Graph {
 
     /**
      * Adds an edge to the graph, connecting two nodes.
-     * @param {*} node Value to be added as a node.
+     * @param {*} node1 First value to be connected with second.
+     * @param {*} node2 Second value to be connected with first.
      * @returns Updated Graph.
      */
     addEdge(node1, node2) {
