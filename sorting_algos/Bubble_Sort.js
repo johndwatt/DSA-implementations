@@ -14,6 +14,7 @@ const nums = [10, 295, 37, 2, 84, 50, 1, 7, 86, 310, 462, 19, 0];
 /**
  * Sorts values inefficiently in-place.
  * @param {Array} array Array of values to be sorted. 
+ * @returns Sorted Array.
  */
 const bubbleSort = function (array) {
     for (let i = 0; i < array.length; i++) {
@@ -26,7 +27,7 @@ const bubbleSort = function (array) {
             }
         }
     }
+    return array;
 }
 
-bubbleSort(nums);
-console.log(nums);
+console.log(bubbleSort(nums));
