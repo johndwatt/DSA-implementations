@@ -24,4 +24,18 @@ const linearSearch = function (array, target) {
     return undefined;
 }
 
-console.log(linearSearch(nums, 86));
+// console.log(linearSearch(nums, 86));
+
+// Javascript Included Functions that utilize linear search:
+
+nums.indexOf(86);
+
+nums.findIndex(function(item) {
+    return item === 86;
+});
+
+nums.find(function(item) {
+    return item === 86;
+});
+
+nums.includes(86);
