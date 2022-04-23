@@ -28,6 +28,19 @@ class Array:
         self.length += 1
         return self.data
 
+    def pop(self):
+        """Deletes the last item in the array."""
+        last_item = self.data[self.length - 1]
+        del self.data[self.length - 1]
+        self.length -= 1
+        return last_item
+
+
 my_array = Array()
 print(my_array.push("Brian"))
 print(my_array.get(0))
+print(my_array.push("Sam"))
+print(my_array.push("Michael"))
+print(my_array.push("Danny"))
+print(my_array.pop())
+print(my_array.data)
