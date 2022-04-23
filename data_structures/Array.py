@@ -35,6 +35,15 @@ class Array:
         self.length -= 1
         return last_item
 
+    def delete_at_index(self, idx: int):
+        """Delete item at index and shift items in array to new indicies."""
+        item = self.data[idx]
+        for i in range(idx, self.length - 1):
+            self.data[i] = self.data[i + 1]
+        del self.data[self.length - 1]
+        self.length -= 1
+        return item
+
 
 my_array = Array()
 print(my_array.push("Brian"))
@@ -44,3 +53,7 @@ print(my_array.push("Michael"))
 print(my_array.push("Danny"))
 print(my_array.pop())
 print(my_array.data)
+print(my_array.push("DELETE ME"))
+print(my_array.push("Danny"))
+print(my_array.delete_at_index(3))
+print(my_array.data, my_array.length)
