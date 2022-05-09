@@ -46,6 +46,7 @@ class Hash_Table:
         return None
 
     def keys(self):
+        """Returns a list of all keys in the hash table."""
         if not len(self.data): return None
         keys_list = []
         for i in range(len(self.data)):
@@ -56,6 +57,8 @@ class Hash_Table:
                 else:
                     keys_list.append(self.data[i][0][0])
         return keys_list
+
+    
 
 
 my_map = Hash_Table(10)
