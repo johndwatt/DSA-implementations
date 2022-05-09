@@ -34,7 +34,21 @@ class Hash_Table:
             self.data[address] = []
         self.data[address].append([key, value])
         return self.data
+    
+    def get(self, key: str):
+        """Returns value stored at address with matching key."""
+        address = self._hash(key)
+        current_bucket = self.data[address]
+        if current_bucket:
+            for i in range(len(current_bucket)):
+                if current_bucket[i][0] == key:
+                    return current_bucket[i][1]
+        return None
 
 
 my_map = Hash_Table(10)
 print(my_map.set("1", "Brian"))
+print(my_map.set("5", "Sam"))
+print(my_map.set("3", "Michael"))
+print(my_map.set("10", "Danny"))
+print(my_map.get("10"))
