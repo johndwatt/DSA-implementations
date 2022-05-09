@@ -58,7 +58,16 @@ class Hash_Table:
                     keys_list.append(self.data[i][0][0])
         return keys_list
 
-    
+    def remove(self, key: str):
+        """Deletes data stored at address with matching key."""
+        address = self._hash(key)
+        current_bucket = self.data[address]
+        if current_bucket:
+            for i in range(len(current_bucket)):
+                if current_bucket[i][0] == key:
+                    current_bucket[i:1]
+                    return True
+        return False
 
 
 my_map = Hash_Table(10)
