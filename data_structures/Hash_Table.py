@@ -45,6 +45,18 @@ class Hash_Table:
                     return current_bucket[i][1]
         return None
 
+    def keys(self):
+        if not len(self.data): return None
+        keys_list = []
+        for i in range(len(self.data)):
+            if self.data[i]:
+                if len(self.data[i]) > 1:
+                    for j in range(len(self.data[i])):
+                        keys_list.append(self.data[i][j][0])
+                else:
+                    keys_list.append(self.data[i][0][0])
+        return keys_list
+
 
 my_map = Hash_Table(10)
 print(my_map.set("1", "Brian"))
@@ -52,3 +64,4 @@ print(my_map.set("5", "Sam"))
 print(my_map.set("3", "Michael"))
 print(my_map.set("10", "Danny"))
 print(my_map.get("10"))
+print(my_map.keys())
