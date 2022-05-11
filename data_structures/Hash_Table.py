@@ -27,7 +27,7 @@ class Hash_Table:
             hash = (hash + ord(key[i]) * i) % len(self.data)
         return hash
     
-    def set(self, key: str, value):
+    def add(self, key: str, value):
         """Adds a key value pair at the hashed address."""
         address = self._hash(key)
         if not self.data[address]:
@@ -65,15 +65,17 @@ class Hash_Table:
         if current_bucket:
             for i in range(len(current_bucket)):
                 if current_bucket[i][0] == key:
-                    current_bucket[i:1]
+                    del current_bucket[i]
                     return True
         return False
 
 
 my_map = Hash_Table(10)
-print(my_map.set("1", "Brian"))
-print(my_map.set("5", "Sam"))
-print(my_map.set("3", "Michael"))
-print(my_map.set("10", "Danny"))
+print(my_map.add("1", "Brian"))
+print(my_map.add("5", "Sam"))
+print(my_map.add("3", "Michael"))
+print(my_map.add("10", "Danny"))
 print(my_map.get("10"))
+print(my_map.keys())
+print(my_map.remove("10"))
 print(my_map.keys())
