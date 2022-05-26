@@ -77,4 +77,39 @@ class LinkedList:
             current_node = current_node.next
         return arr
 
+    def remove(self, index):
+        """Removes a node at given index from the linked list."""
+        if index >= self.length:
+            return None
+        leader = self.traverse_to_index(index-1)
+        to_delete = leader.next
+        leader.next = to_delete.next
+        self.length -= 1
+        return self.print_list()
+
+    def reverse(self):
+        if not self.head.next:
+            return self.head
+        first = self.head
+        second = first.next
+        self.tail = self.head
+        while second:
+            temp = second.next 
+            second.next = first
+            first = second
+            second = temp
+        self.head.next = None
+        self.head = first
+        return self.print_list()
+
 my_list = LinkedList("bird")
+print(my_list)
+print(my_list.push("plane"))
+print(my_list.prepend("front"))
+print(my_list.print_list())
+print(my_list.insert(1, "superman"))
+print(my_list.insert(1, "delete me"))
+print(my_list.print_list())
+print(my_list.remove(1))
+print(my_list.reverse())
+
