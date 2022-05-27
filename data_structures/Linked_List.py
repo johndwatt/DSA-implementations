@@ -113,3 +113,15 @@ print(my_list.print_list())
 print(my_list.remove(1))
 print(my_list.reverse())
 
+# IMPLEMENTATION - Doubly Linked List:
+class NodeTwo:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        self.prev = None
+
+class DoublyLinkedList:
+    def __init__(self, value):
+        self.head = NodeTwo(value)
+        self.tail = self.head
+        self.length = 1
