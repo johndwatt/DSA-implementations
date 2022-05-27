@@ -1,4 +1,4 @@
-// === STACK ===
+// === QUEUE ===
 
 // Definition: A first in first out data structure where only the earliest added item can be easily accessed or changed.
 
