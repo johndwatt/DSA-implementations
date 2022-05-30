@@ -13,17 +13,14 @@ nums = [10, 295, 37, 2, 84, 50, 1, 7, 86, 310, 462, 19, 0]
 
 def insertion_sort(array):
     """Sorts array of values inefficiently in-place."""
-    for i in range(len(array)):
-        if array[i] < array[0]:
-            array.insert(0, array[i:1][0])
-        else:
-            if array[i] < array[i - 1]:
-                j = 1
-                while j < i:
-                    if array[i] >= array[j-1] and array[i] < array[j]:
-                        array.insert(0, array[i:1][0])
-                    j += 1
+    for i in range(1, len(array)):
+        temp = array[i]
+        j = i - 1
+        while j >= 0 and temp < array[j]:
+            array[j + 1] = array[j]
+            j -= 1
+        array[j + 1] = temp
     return array
-# UNFINISHED - ISSUE IN LINE 24
+    
 print(insertion_sort(nums))
 
