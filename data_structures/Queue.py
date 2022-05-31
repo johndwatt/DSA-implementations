@@ -15,6 +15,18 @@ class Node:
         self.value = value
         self.next = None
 
+    def __str__(self):
+        return str({
+            "Value": self.value, 
+            "Next": self.next
+        })
+
+    def __repr__(self):
+        return str({
+            "Value": self.value, 
+            "Next": self.next
+        })
+
 class Queue:
     def __init__(self):
         self.first = None

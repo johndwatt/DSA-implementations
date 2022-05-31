@@ -19,6 +19,18 @@ class Node:
         self.value = value
         self.next = None
 
+    def __str__(self):
+        return str({
+            "Value": self.value, 
+            "Next": self.next
+        })
+
+    def __repr__(self):
+        return str({
+            "Value": self.value, 
+            "Next": self.next
+        })
+
 class LinkedList:
     def __init__(self, value):
         self.head = Node(value)
@@ -121,6 +133,20 @@ class NodeTwo:
         self.value = value
         self.next = None
         self.prev = None
+
+    def __str__(self):
+        return str({
+            "Value": self.value, 
+            "Next": self.next,
+            "Prev": self.prev
+        })
+
+    def __repr__(self):
+        return str({
+            "Value": self.value, 
+            "Next": self.next,
+            "Prev": self.prev
+        })
 
 class DoublyLinkedList:
     def __init__(self, value):
