@@ -38,6 +38,6 @@ def DFS_post_order(node, array):
     array.append(node.value)
     return array
 
-print(DFS_in_order(self.root, []))
-print(DFS_pre_order(self.root, []))
-print(DFS_post_order(self.root, []))
+# print(DFS_in_order(self.root, []))
+# print(DFS_pre_order(self.root, []))
+# print(DFS_post_order(self.root, []))
