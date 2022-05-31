@@ -86,6 +86,61 @@ class BinarySearchTree:
                 return current_node
         return None
 
+    def remove(self, value):
+        """Locate and remove node where given value is stored."""
+        if not self.root:
+            return False
+        current_node = self.root
+        parent_node = None
+        while current_node:
+            if value < current_node.value:
+                parent_node = current_node
+                current_node = current_node.left
+            elif value > current_node.value:
+                parent_node = current_node
+                current_node = current_node.right
+            elif value == current_node.value:
+                # No right child
+                if current_node.right == None:
+                    if parent_node == None:
+                        self.root = current_node.left
+                    else: 
+                        if current_node.value < parent_node.value:
+                            parent_node.left = current_node.left
+                        elif current_node.value > parent_node.value:
+                            parent_node.right = current_node.left
+                # Right child no left child
+                elif current_node.right.left == None:
+                    current_node.right.left == current_node.left
+                    if parent_node == None:
+                        self.root = current_node.right
+                    else:
+                        if current_node.value < parent_node.value:
+                            parent_node.left = current_node.right
+                        elif current_node.value > parent_node.value:
+                            parent_node.right = current_node.right
+                # Right child with a left child
+                else:
+                    leftmost = current_node.right.left
+                    leftmost_parent = current_node.right
+                    while leftmost.left != None:
+                        leftmost_parent = leftmost
+                        leftmost = leftmost.left
+                    leftmost_parent.left = leftmost.right
+                    leftmost.left = current_node.left
+                    leftmost.right = current_node.right
+
+                    if parent_node == None:
+                        self.root = leftmost
+                    else:
+                        if current_node.value < parent_node.value:
+                            parent_node.left = leftmost
+                        elif current_node.value > parent_node.value:
+                            parent_node.right = leftmost
+                return True
+
+
+
 tree = BinarySearchTree()
 print(tree)
 print(tree.insert(10))
@@ -93,4 +148,7 @@ print(tree.insert(5))
 print(tree.insert(50))
 print(tree.lookup(50))
 print(tree.insert(1))
+print(tree.remove(1))
+print(tree)
+print(tree.lookup(1))
 
