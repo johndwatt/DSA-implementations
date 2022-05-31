@@ -10,7 +10,7 @@ const nums = [10, 295, 37, 2, 84, 50, 1, 7, 86, 310, 462, 19, 0];
 
 // From Scratch:
 /**
- * Finds target value in list and returns the index where the value is tored. 
+ * Finds target value in list and returns the index where the value is stored. 
  * @param {Array} array Array to be searched.
  * @param {*} target Target value to find.
  * @returns Index where the value is stored. 
